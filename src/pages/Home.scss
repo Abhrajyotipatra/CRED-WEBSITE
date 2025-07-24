@@ -1,0 +1,446 @@
+
+// $background: #0a0a0a;
+// $card-bg: #111;
+// $border-color: #2a2a2a;
+// $accent: #30e3ca;
+// $text-light: #bbb;
+// $text-faint: #ccc;
+
+// .home {
+//   background-color: $background;
+//   color: white;
+//   min-height: 100vh;
+//   padding: 40px 20px;
+//   position: relative;
+//   overflow: hidden;
+
+//   .hero {
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     margin-top: 100px;
+//     margin-bottom: 60px;
+//     position: relative;
+
+//     .background-lines {
+//       position: absolute;
+//       width: 100%;
+//       height: 100%;
+//       background-image: radial-gradient(#30e3ca22 1px, transparent 1px);
+//       background-size: 40px 40px;
+//       opacity: 0.03;
+//       z-index: 0;
+//     }
+
+//     &::before {
+//       content: "";
+//       position: absolute;
+//       top: -80px;
+//       left: 50%;
+//       transform: translateX(-50%);
+//       width: 500px;
+//       height: 500px;
+//       background: radial-gradient(circle, #30e3ca 0%, transparent 70%);
+//       opacity: 0.1;
+//       filter: blur(100px);
+//       z-index: 0;
+//     }
+
+//     .hero-content {
+//       text-align: center;
+//       z-index: 2;
+//     }
+
+//     .hero-title {
+//       font-size: 3rem;
+//       font-weight: bold;
+//       color: white;
+//       margin-bottom: 20px;
+//     }
+
+//     p {
+//       font-size: 1.2rem;
+//       color: $text-light;
+//     }
+
+//     .scroll-indicator {
+//       font-size: 2rem;
+//       color: $accent;
+//       margin-top: 30px;
+//     }
+
+//     .hero-img {
+//       width: 300px;
+//       margin-top: 40px;
+//       z-index: 2;
+//       filter: drop-shadow(0 0 10px rgba(48, 227, 202, 0.3));
+//     }
+//   }
+
+//   .features {
+//     display: grid;
+//     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+//     gap: 30px;
+//     margin: 60px 0;
+
+//     .feature-card {
+//       background-color: $card-bg;
+//       border: 1px solid $border-color;
+//       padding: 30px 20px;
+//       border-radius: 12px;
+//       transition: 0.3s;
+
+//       &:hover {
+//         background: rgba(255, 255, 255, 0.05);
+//         box-shadow: 0 0 25px rgba(48, 227, 202, 0.15);
+//         transform: translateY(-4px);
+//       }
+
+//       h2 {
+//         font-size: 1.5rem;
+//         color: $accent;
+//         margin-bottom: 10px;
+//       }
+
+//       p {
+//         color: $text-faint;
+//       }
+//     }
+//   }
+
+//   .cta {
+//     text-align: center;
+//     margin-top: 60px;
+
+//     button {
+//       background: transparent;
+//       border: 2px solid $accent;
+//       // color: $accent;
+//       font-size: 1.1rem;
+//       padding: 12px 30px;
+//       border-radius: 30px;
+//       cursor: pointer;
+//       transition: all 0.3s ease;
+
+//       &:hover {
+//         background: linear-gradient(to right, #30e3ca, #0ff);
+//         color: black;
+//         box-shadow: 0 0 25px rgba(48, 227, 202, 0.3);
+//       }
+//     }
+//   }
+// }
+
+// // 📱 Responsive
+// @media (max-width: 768px) {
+//   .hero {
+//     flex-direction: column;
+
+//     .hero-title {
+//       font-size: 2rem;
+//     }
+
+//     .hero-img {
+//       width: 240px;
+//     }
+//   }
+
+//   .features {
+//     grid-template-columns: 1fr;
+//   }
+
+//   .cta button {
+//     width: 100%;
+//   }
+// }
+
+
+
+$background: #0a0a0a;
+$card-bg: #111;
+$border-color: #2a2a2a;
+$accent: #30e3ca;
+$text-light: #fff;
+$text-faint: #ccc;
+
+$primary: #113F67;
+$secondary: #34699A;
+$tertiary: #58A0C8;
+$quaternary: #FDF5AA;
+
+.home {
+  background-color: $secondary;
+  color: white;
+  min-height: 100vh;
+  // padding: 40px 20px;
+
+  .hero {
+    position: relative;
+    text-align: center;
+    // margin-top: 60px;
+    // margin-bottom: 60px;
+    background-color: $secondary;
+
+    .hero-title {
+      font-size: 3rem;
+      font-weight: bold;
+      color: white;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 1.2rem;
+      color: $text-light;
+    }
+
+    .scroll-indicator {
+      font-size: 2rem;
+      margin-top: 20px;
+      color: $accent;
+    }
+
+    .hero-img {
+      width: 300px;
+      margin-top: 40px;
+      z-index: 2;
+      filter: drop-shadow(0 0 10px rgba(48, 227, 202, 0.3));
+    }
+  }
+
+  .features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin: 60px 0;
+    
+
+    .feature-card {
+      background-color: $card-bg;
+      border: 1px solid $border-color;
+      padding: 30px 20px;
+      border-radius: 12px;
+      transition: 0.3s;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.05);
+        box-shadow: 0 0 20px rgba(48, 227, 202, 0.2);
+        transform: translateY(-4px);
+      }
+
+      h2 {
+        font-size: 1.5rem;
+        color: $accent;
+        margin-bottom: 10px;
+      }
+
+      p {
+        color: $text-faint;
+      }
+    }
+  }
+
+  .how-it-works {
+    text-align: center;
+    margin: 60px 0;
+
+    h2 {
+      color: $accent;
+      margin-bottom: 30px;
+    }
+
+    .steps {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
+
+      div {
+        background: $card-bg;
+        padding: 20px;
+        border-radius: 10px;
+        width: 220px;
+        border: 1px solid $border-color;
+
+        h3 {
+          color: $accent;
+          margin-bottom: 10px;
+        }
+
+        p {
+          color: $text-faint;
+        }
+      }
+    }
+  }
+
+  .testimonials {
+    text-align: center;
+    margin: 60px 0;
+
+    h2 {
+      color: $accent;
+      margin-bottom: 20px;
+    }
+
+    .testimonial-card {
+      background: $card-bg;
+      padding: 30px;
+      border-radius: 10px;
+      max-width: 500px;
+      margin: 0 auto;
+      color: $text-light;
+      font-style: italic;
+      border: 1px solid $border-color;
+
+      strong {
+        display: block;
+        margin-top: 10px;
+        color: $accent;
+      }
+    }
+  }
+  
+  .box{
+    width: 100%;
+    // max-width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 3rem;
+    background-color: $tertiary;
+
+     .app-cta {
+    text-align: center;
+    margin: 1.2rem 0;
+
+    h2 {
+      margin-bottom: 4rem;
+      color: $background;
+      // margin-bottom: 20px;
+    }
+
+    button {
+      background-color: transparent;
+      border: 2px solid $background;
+      font-size: 1.1rem;
+      padding: 12px 30px;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      color: $background;
+
+      &:hover {
+        background-color: $accent;
+        color: black;
+      }
+    }
+  }
+
+  .newsletter {
+    text-align: center;
+    margin: 1.2rem 0;
+
+    h2 {
+      margin-bottom: 4rem;
+      color: $background;
+    }
+
+    input {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 25px;
+      width: 250px;
+      margin-right: 10px;
+    }
+
+    button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 25px;
+      background: $accent;
+      color: black;
+      cursor: pointer;
+      font-size: 1rem;
+     }
+   }
+
+  }
+ 
+  .trust-section {
+    text-align: center;
+    margin: 60px 0;
+
+    h2 {
+      font-size: 3rem;
+      color: $accent;
+      margin-bottom: 20px;
+    }
+
+    .trust-numbers {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
+      font-size: 1.2rem;
+
+      div {
+        background: $card-bg;
+        padding: 20px;
+        border-radius: 10px;
+        border: 1px solid $border-color;
+        color: $text-light;
+        font-family: monospace;
+
+        strong{
+          font-size: 2.5rem;
+          color: $quaternary;
+          
+        }
+
+        
+      }
+    }
+  }
+
+
+  footer {
+    text-align: center;
+    padding: 20px;
+    border-top: 1px solid $border-color;
+    color: $text-light;
+
+    .footer-links {
+      margin-top: 10px;
+
+      a {
+        margin: 0 10px;
+        color: $accent;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .features {
+    grid-template-columns: 1fr;
+  }
+
+  .hero .hero-title {
+    font-size: 2rem;
+  }
+
+  .cta button {
+    width: 100%;
+  }
+
+  .how-it-works .steps {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .trust-numbers {
+    flex-direction: column;
+    align-items: center;
+  }
+}

@@ -1,0 +1,224 @@
+.home {
+  background-color: #34699A;
+  color: white;
+  min-height: 100vh;
+}
+.home .hero {
+  position: relative;
+  text-align: center;
+  background-color: #34699A;
+}
+.home .hero .hero-title {
+  font-size: 3rem;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 20px;
+}
+.home .hero p {
+  font-size: 1.2rem;
+  color: #fff;
+}
+.home .hero .scroll-indicator {
+  font-size: 2rem;
+  margin-top: 20px;
+  color: #30e3ca;
+}
+.home .hero .hero-img {
+  width: 300px;
+  margin-top: 40px;
+  z-index: 2;
+  filter: drop-shadow(0 0 10px rgba(48, 227, 202, 0.3));
+}
+.home .features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  margin: 60px 0;
+}
+.home .features .feature-card {
+  background-color: #111;
+  border: 1px solid #2a2a2a;
+  padding: 30px 20px;
+  border-radius: 12px;
+  transition: 0.3s;
+}
+.home .features .feature-card:hover {
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 0 20px rgba(48, 227, 202, 0.2);
+  transform: translateY(-4px);
+}
+.home .features .feature-card h2 {
+  font-size: 1.5rem;
+  color: #30e3ca;
+  margin-bottom: 10px;
+}
+.home .features .feature-card p {
+  color: #ccc;
+}
+.home .how-it-works {
+  text-align: center;
+  margin: 60px 0;
+}
+.home .how-it-works h2 {
+  color: #30e3ca;
+  margin-bottom: 30px;
+}
+.home .how-it-works .steps {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+.home .how-it-works .steps div {
+  background: #111;
+  padding: 20px;
+  border-radius: 10px;
+  width: 220px;
+  border: 1px solid #2a2a2a;
+}
+.home .how-it-works .steps div h3 {
+  color: #30e3ca;
+  margin-bottom: 10px;
+}
+.home .how-it-works .steps div p {
+  color: #ccc;
+}
+.home .testimonials {
+  text-align: center;
+  margin: 60px 0;
+}
+.home .testimonials h2 {
+  color: #30e3ca;
+  margin-bottom: 20px;
+}
+.home .testimonials .testimonial-card {
+  background: #111;
+  padding: 30px;
+  border-radius: 10px;
+  max-width: 500px;
+  margin: 0 auto;
+  color: #fff;
+  font-style: italic;
+  border: 1px solid #2a2a2a;
+}
+.home .testimonials .testimonial-card strong {
+  display: block;
+  margin-top: 10px;
+  color: #30e3ca;
+}
+.home .box {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 3rem;
+  background-color: #58A0C8;
+}
+.home .box .app-cta {
+  text-align: center;
+  margin: 1.2rem 0;
+}
+.home .box .app-cta h2 {
+  margin-bottom: 4rem;
+  color: #0a0a0a;
+}
+.home .box .app-cta button {
+  background-color: transparent;
+  border: 2px solid #0a0a0a;
+  font-size: 1.1rem;
+  padding: 12px 30px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #0a0a0a;
+}
+.home .box .app-cta button:hover {
+  background-color: #30e3ca;
+  color: black;
+}
+.home .box .newsletter {
+  text-align: center;
+  margin: 1.2rem 0;
+}
+.home .box .newsletter h2 {
+  margin-bottom: 4rem;
+  color: #0a0a0a;
+}
+.home .box .newsletter input {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 25px;
+  width: 250px;
+  margin-right: 10px;
+}
+.home .box .newsletter button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 25px;
+  background: #30e3ca;
+  color: black;
+  cursor: pointer;
+  font-size: 1rem;
+}
+.home .trust-section {
+  text-align: center;
+  margin: 60px 0;
+}
+.home .trust-section h2 {
+  font-size: 3rem;
+  color: #30e3ca;
+  margin-bottom: 20px;
+}
+.home .trust-section .trust-numbers {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  font-size: 1.2rem;
+}
+.home .trust-section .trust-numbers div {
+  background: #111;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid #2a2a2a;
+  color: #fff;
+  font-family: monospace;
+}
+.home .trust-section .trust-numbers div strong {
+  font-size: 2.5rem;
+  color: #FDF5AA;
+}
+.home footer {
+  text-align: center;
+  padding: 20px;
+  border-top: 1px solid #2a2a2a;
+  color: #fff;
+}
+.home footer .footer-links {
+  margin-top: 10px;
+}
+.home footer .footer-links a {
+  margin: 0 10px;
+  color: #30e3ca;
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  .features {
+    grid-template-columns: 1fr;
+  }
+  .hero .hero-title {
+    font-size: 2rem;
+  }
+  .cta button {
+    width: 100%;
+  }
+  .how-it-works .steps {
+    flex-direction: column;
+    align-items: center;
+  }
+  .trust-numbers {
+    flex-direction: column;
+    align-items: center;
+  }
+}

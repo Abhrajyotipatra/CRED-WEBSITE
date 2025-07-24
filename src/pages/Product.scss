@@ -1,0 +1,144 @@
+// .products-page {
+//   padding: 60px 20px;
+//   background-color: #0a0a0a;
+//   color: white;
+//   min-height: 100vh;
+
+//   .page-title {
+//     text-align: center;
+//     font-size: 2.5rem;
+//     margin-bottom: 40px;
+//     color: #30e3ca;
+//   }
+
+//   .product-grid {
+//     display: grid;
+//     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+//     gap: 30px;
+//     padding: 0 20px;
+//   }
+
+//   .product-card {
+//     background: #111;
+//     border: 1px solid rgba(255, 255, 255, 0.1);
+//     padding: 30px;
+//     border-radius: 15px;
+//     cursor: pointer;
+//     transition: all 0.3s ease;
+
+//     h2 {
+//       color: #30e3ca;
+//       font-size: 1.4rem;
+//       margin-bottom: 10px;
+//     }
+
+//     p {
+//       color: #ccc;
+//     }
+
+//     &:hover {
+//       box-shadow: 0 0 25px rgba(48, 227, 202, 0.2);
+//     }
+//   }
+// }
+
+
+.products-page {
+  padding: 60px 20px;
+  background-color: #0a0a0a;
+  color: white;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+
+  .page-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #30e3ca;
+  }
+
+  .subheading {
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: #ccc;
+    margin-bottom: 40px;
+  }
+
+  .scroll-backgrounds {
+    position: absolute;
+    top: 180px;
+    left: 0;
+    width: 100%;
+    z-index: 0;
+
+    .bg-card {
+      width: 280px;
+      height: 180px;
+      border-radius: 20px;
+      filter: blur(40px);
+      position: absolute;
+    }
+
+    .orange {
+      background-color: #ff6600;
+      left: 10%;
+    }
+
+    .green {
+      background-color: #30e3ca;
+      right: 10%;
+      top: 150px;
+    }
+    // .blue{
+    //   background-color: #007bff;
+    //   left: 20%;
+    //   top: 300px;
+    // }
+  }
+
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+    padding: 0 20px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .product-card {
+    background: #111;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    h2 {
+      color: #30e3ca;
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #ccc;
+    }
+
+    &:hover {
+      box-shadow: 0 0 25px rgba(48, 227, 202, 0.2);
+    }
+  }
+
+  .benefits-bar {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 50px;
+    color: #30e3ca;
+    font-size: 0.95rem;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 2;
+  }
+}
