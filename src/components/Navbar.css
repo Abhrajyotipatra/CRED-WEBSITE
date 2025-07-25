@@ -1,7 +1,7 @@
 .navbar {
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 1000;
   background-color: #113F67;
   display: flex;
   justify-content: space-between;
@@ -12,6 +12,12 @@
 .navbar__logo {
   font-size: 1.6rem;
   font-weight: 600;
+  color: white;
+}
+.navbar__toggle {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
   color: white;
 }
 .navbar__links {
@@ -34,12 +40,35 @@
 
 @media (max-width: 768px) {
   .navbar {
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: row;
+    align-items: center;
+    padding: 20px;
+  }
+  .navbar__toggle {
+    display: block;
+    display: block;
+    z-index: 1100;
   }
   .navbar__links {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 100%;
     flex-direction: column;
-    gap: 15px;
-    margin-top: 10px;
+    background: #113F67;
+    gap: 20px;
+    padding: 20px;
+    max-height: 0;
+    overflow: hidden;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    opacity: 0;
+    transition: max-height 0.4s ease, opacity 0.4s ease;
+  }
+  .navbar__links li {
+    text-align: center;
+  }
+  .navbar.open .navbar__links {
+    max-height: 300px;
+    opacity: 1;
   }
 }

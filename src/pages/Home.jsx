@@ -1,316 +1,266 @@
 
-// import React from "react";
-// import { motion } from "framer-motion";
-// import "./home.css";
+import { motion } from "motion/react";
+import Marquee from "react-fast-marquee";
+import { Swiper, SwiperSlide } from "swiper/react";
+import  { Autoplay } from "swiper/modules";
+import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
-// const headingWords = "Experience Credit Like Never Before".split(" ");
+import { useInView } from 'react-intersection-observer';
 
-// const headingContainer = {
-//   hidden: { opacity: 0 },
-//   visible: {
-//     opacity: 1,
-//     transition: {
-//       staggerChildren: 0.4,
-//     },
-//   },
-// };
-
-// const wordAnimation = {
-//   hidden: { opacity: 0, y: 20 },
-//   visible: { opacity: 1, y: 0 },
-// };
-
-// const features = [
-//   {
-//     title: "CRED RentPay",
-//     description: "Pay monthly rent using credit card & earn rewards.",
-//   },
-//   {
-//     title: "CRED Store",
-//     description: "Shop exclusive brands using CRED coins.",
-//   },
-//   {
-//     title: "CRED Cash",
-//     description: "Instant personal loans with low interest rates.",
-//   },
-//   {
-//     title: "CRED Travel",
-//     description: "Earn points & offers on flight & hotel bookings.",
-//   },
-// ];
-
-// const Home = () => {
-//   return (
-//     <div className="home">
-//       {/* Hero Section */}
-//       <section className="hero">
-//         {/* Glowing background + dotted pattern */}
-//         <div className="background-lines" />
-
-//         <div className="hero-content">
-//           <motion.h1
-//             className="hero-title"
-//             variants={headingContainer}
-//             initial="hidden"
-//             animate="visible"
-//           >
-//             {headingWords.map((word, index) => (
-//               <motion.span
-//                 key={index}
-//                 variants={wordAnimation}
-//                 style={{ display: "inline-block", marginRight: "8px" }}
-//               >
-//                 {word}
-//               </motion.span>
-//             ))}
-//           </motion.h1>
-
-//           <motion.p
-//             initial={{ opacity: 0 }}
-//             animate={{ opacity: 1 }}
-//             transition={{ delay: 0.5, duration: 1 }}
-//           >
-//             Welcome to the next generation of financial freedom.
-//           </motion.p>
-
-//           {/* Scroll down arrow */}
-//           <motion.div
-//             className="scroll-indicator"
-//             animate={{ y: [0, 10, 0] }}
-//             transition={{ repeat: Infinity, duration: 1.5 }}
-//           >
-//             ↓
-//           </motion.div>
-//         </div>
-
-//         {/* Hero image */}
-//         <motion.img
-//           className="hero-img"
-//           src="/assets/hero-cred.png"
-//           alt="CRED illustration"
-//           initial={{ opacity: 0, y: 40 }}
-//           whileInView={{ opacity: 1, y: 0 }}
-//           transition={{ duration: 0.8 }}
-//         />
-//       </section>
-
-//       {/* Features */}
-//       <section className="features">
-//         {features.map((feature, index) => (
-//           <motion.div
-//             className="feature-card"
-//             key={index}
-//             whileHover={{ scale: 1.05 }}
-//             initial={{ opacity: 0, y: 50 }}
-//             whileInView={{ opacity: 1, y: 0 }}
-//             viewport={{ once: true }}
-//             transition={{ duration: 0.6, delay: index * 0.2 }}
-//           >
-//             <h2>{feature.title}</h2>
-//             <p>{feature.description}</p>
-//           </motion.div>
-//         ))}
-//       </section>
-
-//       {/* CTA */}
-//       <section className="cta">
-//         <motion.button
-//           whileHover={{ scale: 1.1, backgroundColor: "#30e3ca" }}
-//           transition={{ duration: 0.3 }}
-//         >
-//           Join CRED
-//         </motion.button>
-//       </section>
-//     </div>
-//   );
-// };
-
-// export default Home;
-
-
-
-import React from "react";
-import { motion } from "framer-motion";
+import "swiper/css";
 import "./home.css";
-// import heroImage from "../assets/hero-cred.png"; 
-
-const headingWords = "Experience Credit Like Never Before".split(" ");
-
-const headingContainer = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.4,
-    },
-  },
-};
-
-const wordAnimation = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0 },
-};
 
 const features = [
+  { title: "CRED RentPay",
+     description: "Pay rent using your credit card and earn rewards.",
+     icon: "/assets/features/rentpay.jpg",
+  },
+  { title: "CRED Store", 
+    description: "Use your CRED coins to shop top brands.", 
+    icon: "/assets/features/store.jpg",
+ },
+  { title: "CRED Cash", 
+    description: "Instant credit line at low interest.",
+    icon: "/assets/features/cash.jpg",
+   },
+  { title: "CRED Travel",
+     description: "Travel smart with exclusive offers.",
+     icon: "/assets/features/travel.jpg",
+
+     },
+  { title: "CRED Protect", 
+    description: "Smart bill reminders & credit protection.",
+    icon: "/assets/features/protect.png",
+ },
+];
+
+const brandLogos = [
+  "/assets/Swiggy.png",
+  "/assets/zerodha1.svg",
+  "/assets/bookmyshow.svg",
+  "/assets/bmw.svg",
+  "/assets/nykaa.svg",
+  "/assets/goibibo.png",
+  "/assets/cleartax.svg",
+  "/assets/curefit.webp",
+];
+
+
+const steps = [
   {
-    title: "CRED RentPay",
-    description: "Pay monthly rent using credit card & earn rewards.",
+    title: "Download the CRED App to Get Started",
+   subtitle: "Install from the Play Store or App Store to begin your credit journey.",
+    icon: "/assets/howitworks/download.svg", 
   },
   {
-    title: "CRED Store",
-    description: "Shop exclusive brands using CRED coins.",
+    title: "Securely Register with Your Credit Card and Verify Identity",
+    subtitle: "Securely link your credit card to unlock full CRED features.",
+    icon: "/assets/howitworks/credit-card.jpg",
   },
   {
-    title: "CRED Cash",
-    description: "Instant personal loans with low interest rates.",
-  },
-  {
-    title: "CRED Travel",
-    description: "Earn points & offers on flight & hotel bookings.",
-  },
+    title: "Earn Cashback & Rewards Instantly While Paying Bills",
+    subtitle: "Get instant cashback and points each time you pay a bill.",
+    icon: "/assets/howitworks/rewards.jpg",
+  }
 ];
 
 const testimonials = [
+  { name: "Ayush, Delhi", text: "CRED helped me pay rent and earn cashback—amazing!" },
   { name: "Ankur Warikoo", text: "CRED is setting a gold standard for financial services." },
   { name: "Sequoia Capital", text: "One of the most trusted fintech brands in India." },
+  { name: "Sneha, Mumbai", text: "CRED rewards are actually valuable!" },
+  { name: "Rahul, Bangalore", text: "Bill payments have never been this smooth." },
+  { name: "Divya, Pune", text: "CRED coins got me free vouchers every month." },
 ];
 
 const Home = () => {
+
+  const navigate = useNavigate();
+  const handelJoinNow =()=>{
+    navigate("/auth");
+  }
   return (
     <div className="home">
+      {/* HERO SECTION with Swiper */}
+
       <section className="hero">
-        <div className="background-lines" />
-        <div className="hero-content">
-          <motion.h1
-            className="hero-title"
-            variants={headingContainer}
-            initial="hidden"
-            animate="visible"
-          >
-            {headingWords.map((word, index) => (
-              <motion.span
-                key={index}
-                variants={wordAnimation}
-                style={{ display: "inline-block", marginRight: "8px" }}
-              >
-                {word}
-              </motion.span>
-            ))}
-          </motion.h1>
+  <div className="hero-left">
+    <motion.h1
+      initial={{ x: -100, opacity: 0 }}
+      animate={{ x: 0, opacity: 1 }}
+      transition={{ duration: 1 }}
+    >
+      Experience Credit Like Never Before
+    </motion.h1>
+    <p>Welcome to the next generation of financial freedom.</p>
+    <button className="cta-button" onClick={handelJoinNow}>Join Now</button>
+  </div>
 
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.5, duration: 1 }}
-          >
-            Welcome to the next generation of financial freedom.
-          </motion.p>
+  <div className="hero-right">
+    <Swiper
+    modules={[Autoplay]}
+      loop={true}
+      autoplay={{ delay: 3000, disableOnInteraction: false }}
+      spaceBetween={10}
+    >
+      {["/assets/Slide1.jpg", "/assets/Slide2.jpg", "/assets/Slide3.jpg"].map((src, i) => (
+        <SwiperSlide key={i}>
+          <img src={src} alt={`Slide ${i}`} className="hero-slide-img" />
+        </SwiperSlide>
+      ))}
+    </Swiper>
+  </div>
+</section>
 
-          <motion.div
-            className="scroll-indicator"
-            animate={{ y: [0, 10, 0] }}
-            transition={{ repeat: Infinity, duration: 1.5 }}
-          >
-            ↓
-          </motion.div>
-        </div>
 
-        <motion.img
-          className="hero-img"
-          src="/assets/hero-cred.png"
-          alt="CRED Hero"
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        />
-      </section>
+      {/* MARQUEE SECTION */}
 
+      <div className="marquee-wrapper">
+  <Marquee speed={40} gradient={false}>
+    {brandLogos.map((src, i) => (
+      <img key={i} src={src} alt={`brand-${i}`} className="brand-logo" />
+    ))}
+  </Marquee>
+  <div className="fade-left" />
+  <div className="fade-right" />
+</div>
+
+
+      {/* FEATURES SECTION */}
       <section className="features">
-        {features.map((feature, index) => (
+        {features.map((f, i) => (
           <motion.div
+            key={i}
             className="feature-card"
-            key={index}
             whileHover={{ scale: 1.05 }}
-            initial={{ opacity: 0, y: 50 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: index * 0.2 }}
+            transition={{ delay: i * 0.2 }}
           >
-            <h2>{feature.title}</h2>
-            <p>{feature.description}</p>
+            <img src={f.icon} alt={f.title} className="feature-icon" />
+            <h2>{f.title}</h2>
+            <p>{f.description}</p>
           </motion.div>
         ))}
       </section>
 
-      <section className="how-it-works">
-        <h2>How It Works</h2>
-        <div className="steps">
-          <div>
-            <h3>Step 1</h3>
-            <p>Download the CRED app</p>
-          </div>
-          <div>
-            <h3>Step 2</h3>
-            <p>Register with your credit card</p>
-          </div>
-          <div>
-            <h3>Step 3</h3>
-            <p>Earn rewards for on-time bill payments</p>
-          </div>
-        </div>
-      </section>
+{/* HOW IT WORKS SECTION */}
+<section className="how-it-works scroll-section">
+  <h2>How It Works</h2>
+  <div className="scroll-cards">
+  {steps.map((step, i) => (
+    <motion.div
+      key={i}
+      className="scroll-card"
+      initial={{ opacity: 0, y: 80 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, delay: i * 0.3 }}
+      viewport={{ once: true }}
+    >
+      <div className="step-content">
+        {/* <div className="text">
+          <h3>Step {i + 1}</h3>
+          <p>{step.sub}</p>
+        </div> */}
+        <div className="text">
+  <h3>Step {i + 1}: {step.title}</h3>
+  <p>{step.subtitle}</p>
+</div>
 
+        <div className="image">
+          <img src={step.icon} alt={`step-${i + 1}`} />
+        </div>
+      </div>
+    </motion.div>
+  ))}
+</div>
+
+</section>
+
+      {/* TESTIMONIAL SECTION */}
       <section className="testimonials">
         <h2>What Our Users Say</h2>
-        <motion.div
-          className="testimonial-card"
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <p>"CRED helped me pay rent and earn cashback—amazing!"</p>
-          <strong>– Ayush, Delhi</strong>
-          
-        </motion.div>
-      </section>
-    
-     {/* app-cta and newsletter in box div  */}
-     {/* <div className="box">    
-      <section className="app-cta">
-        <h2>Start Your Rewarding Credit Journey Today</h2>
-        <motion.button
-          whileHover={{ scale: 1.1, backgroundColor: "#30e3ca" }}
-          transition={{ duration: 0.3 }}
-        >
-          Download the App
-        </motion.button>
+        <Swiper
+          loop
+  autoplay={{ delay: 2000 }}
+  modules={[Autoplay]}
+  spaceBetween={30}
+  breakpoints={{
+    640: { slidesPerView: 1 },
+    768: { slidesPerView: 2 },
+    1024: { slidesPerView: 3 },
+    // 1280: { slidesPerView: 4 },
+  }}
+>
+          {testimonials.map((t, i) => (
+            <SwiperSlide key={i}>
+              <motion.div className="testimonial-card">
+                <p>"{t.text}"</p>
+                <strong>– {t.name}</strong>
+              </motion.div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+
       </section>
 
-      <section className="newsletter">
-        <h2>Get CRED updates in your inbox</h2>
-        <input type="email" placeholder="Enter your email" />
-        <button>Subscribe</button>
-      </section>
-</div> */}
 
-<section className="trust-section">
+      {/* TRUST SECTION (Unchanged) */}
+      <section className="trust-section">
         <h2>Trusted by over 15 million users</h2>
         <div className="trust-numbers">
-          <div><strong>4.8★</strong> App Rating</div>
-          <div><strong>₹300Cr+</strong> Rewards Given</div>
-          <div><strong>500+</strong> Brand Partners</div>
+          <div><motion.strong
+          whileHover={{ scale: 1.1 }}
+          >4.8★</motion.strong> App Rating</div>
+          <div><motion.strong
+          whileHover={{ scale: 1.1 }}
+          >₹300Cr+</motion.strong> Rewards Given</div>
+          <div><motion.strong
+          whileHover={{ scale: 1.1 }}
+          >500+</motion.strong> Brand Partners</div>
         </div>
       </section>
-      
-      <footer>
-        <p>© 2025 CRED Design Hackathon Project</p>
-        <div className="footer-links">
-          <a href="/about">About</a>
-          <a href="/products">Products</a>
-          <a href="/auth">Login</a>
+
+      {/* FOOTER */}
+    <footer className="footer">
+  <div className="footer-top">
+    <div className="footer-brand">
+      <h2>CRED</h2>
+      <p>Your trusted financial partner for payments, rewards, and more.</p>
+    </div>
+    <div className="footer-links">
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/about">About</a></li>
+          <li><a href="/careers">Careers</a></li>
+          <li><a href="/products">Products</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Support</h4>
+        <ul>
+          <li><a href="/help">Help Center</a></li>
+          <li><a href="/auth">Login</a></li>
+        </ul>
+      </div>
+    </div>
+    <div className="footer-social">
+      <h4>Follow Us</h4>
+       <div className="social-icons">
+          <a href="www.facbook.com"><FaFacebook /></a>
+          <a href="www.twitter.com"><FaTwitter /></a>
+          <a href="www.instagram.com"><FaInstagram /></a>
+          <a href="www.linkedin.com"><FaLinkedin /></a>
         </div>
-      </footer>
+    </div>
+  </div>
+  <div className="footer-bottom">
+    <p>© 2025 CRED Design Project. All rights reserved.</p>
+  </div>
+</footer>
+
     </div>
   );
 };

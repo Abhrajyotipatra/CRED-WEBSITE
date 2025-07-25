@@ -1,51 +1,17 @@
-// .products-page {
-//   padding: 60px 20px;
-//   background-color: #0a0a0a;
-//   color: white;
-//   min-height: 100vh;
+$accent: #30e3ca;
+$text-light: #fff;
+$text-dark: #111;
+$text-faint: #ccc;
 
-//   .page-title {
-//     text-align: center;
-//     font-size: 2.5rem;
-//     margin-bottom: 40px;
-//     color: #30e3ca;
-//   }
-
-//   .product-grid {
-//     display: grid;
-//     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-//     gap: 30px;
-//     padding: 0 20px;
-//   }
-
-//   .product-card {
-//     background: #111;
-//     border: 1px solid rgba(255, 255, 255, 0.1);
-//     padding: 30px;
-//     border-radius: 15px;
-//     cursor: pointer;
-//     transition: all 0.3s ease;
-
-//     h2 {
-//       color: #30e3ca;
-//       font-size: 1.4rem;
-//       margin-bottom: 10px;
-//     }
-
-//     p {
-//       color: #ccc;
-//     }
-
-//     &:hover {
-//       box-shadow: 0 0 25px rgba(48, 227, 202, 0.2);
-//     }
-//   }
-// }
+$primary: #113F67;
+$secondary: #34699A;
+$tertiary: #58A0C8;
+$quaternary: #FDF5AA;
 
 
 .products-page {
   padding: 60px 20px;
-  background-color: #0a0a0a;
+  background: $secondary;
   color: white;
   min-height: 100vh;
   position: relative;
@@ -60,9 +26,10 @@
 
   .subheading {
     text-align: center;
+    font-family: monospace;
     font-size: 1.1rem;
     font-weight: 300;
-    color: #ccc;
+    color: $quaternary;
     margin-bottom: 40px;
   }
 
@@ -91,11 +58,7 @@
       right: 10%;
       top: 150px;
     }
-    // .blue{
-    //   background-color: #007bff;
-    //   left: 20%;
-    //   top: 300px;
-    // }
+   
   }
 
   .product-grid {
@@ -108,21 +71,33 @@
   }
 
   .product-card {
-    background: #111;
+    width: 100%;
+    background: $tertiary;
     border: 1px solid rgba(255, 255, 255, 0.1);
     padding: 30px;
     border-radius: 15px;
     cursor: pointer;
     transition: all 0.3s ease;
+    text-align: center;
+
+    .product-icon {
+    width: 100%;
+    object-fit: contain;
+    margin-bottom: 1rem;
+    border-radius: 1rem;
+  }
 
     h2 {
-      color: #30e3ca;
+      color: $text-light;
+      font-weight: 800;
       font-size: 1.4rem;
-      margin-bottom: 10px;
+      margin-bottom: 1rem;
     }
 
     p {
-      color: #ccc;
+      font-family: monospace;
+      color: $quaternary;
+      font-size: 1rem;
     }
 
     &:hover {

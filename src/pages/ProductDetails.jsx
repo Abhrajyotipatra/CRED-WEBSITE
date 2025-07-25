@@ -25,11 +25,19 @@ const ProductDetail = () => {
       exit={{ opacity: 0, y: -20 }}
       transition={{ duration: 0.5 }}
     >
-        <img src={product.icon} alt={product.title} className="product-icon" />
+      <div className="product-content">
+    <div className="product-left">
+      <img src={product.icon} alt={product.title} className="product-icon" />
       <h1>{product.title}</h1>
+    </div>
+    <div className="product-right">
       <p className="desc">{product.desc}</p>
       <p className="details">{product.details}</p>
-      <button onClick={() => navigate('/products')}>← Back to Products</button>
+    </div>
+  </div>
+  <div className="back-btn">
+    <button onClick={() => navigate('/products')}>← Back to Products</button>
+  </div>
     </motion.section>
   );
 };
